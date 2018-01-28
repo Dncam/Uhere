@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+  
+    <definition name="main.template" template="/WEB-INF/views/template/home/index.jsp">
+    	<put-attribute name="menu-superior" value="/WEB-INF/views/home/menu-superior.jsp"/>
+        <put-attribute name="body">
+			<definition name="main.body" template="/WEB-INF/views/template/home/body.jsp">
+				<put-attribute name="filter" value="" />
+				<put-attribute name="body-one" value="/WEB-INF/views/home/body.jsp" />
+			</definition>
+		</put-attribute>
+        <put-attribute name="footer" value="/WEB-INF/views/home/footer.jsp"/>
+    </definition>
+    
+    <definition name="list.vehicles" extends="main.template">
+        <put-attribute name="body">
+			<definition name="vendas.body" template="/WEB-INF/views/template/vendas/body.jsp">
+				<put-attribute name="filter" value="/WEB-INF/views/vendas/catalogo-pesquisa-lateral.jsp" />
+				<put-attribute name="body-one" value="/WEB-INF/views/vendas/catalogo-lista.jsp" />
+			</definition>
+		</put-attribute>
+    </definition>
+
+    <definition name="details" extends="main.template">
+        <put-attribute name="body">
+			<definition extends="main.body">
+				<put-attribute name="filter" value="" />
+				<put-attribute name="body-one" value="/WEB-INF/views/vendas/catalogo-detalhe.jsp" />
+			</definition>
+		</put-attribute>
+    </definition>
+    
+    <definition name="modal.pesquisa.avancada" template="/WEB-INF/views/vendas/modal-pesquisa-avancada.jsp" />
+    
+    <definition name="modal.login" template="/WEB-INF/views/usuario/modal-login-cadastro.jsp" />
+    
+    <definition name="modal.mensagem" template="/WEB-INF/views/mensagem/mensagem-modal.jsp" />
+  	
+	<definition name="erro.registro" extends="main.template">
+        <put-attribute name="body">
+			<definition extends="main.body">
+				<put-attribute name="filter" value="" />
+				<put-attribute name="body-one" value="/WEB-INF/views/mensagem/erro-registro.jsp" />
+			</definition>
+		</put-attribute>
+    </definition>
+	<definition name="mensagem.padrao" extends="main.template">
+        <put-attribute name="body">
+			<definition extends="main.body">
+				<put-attribute name="filter" value="" />
+				<put-attribute name="body-one" value="/WEB-INF/views/mensagem/mensagem-padrao.jsp" />
+			</definition>
+		</put-attribute>
+    </definition>
+    <definition name="completar.cadastro" extends="main.template">
+        <put-attribute name="body">
+			<definition extends="main.body">
+				<put-attribute name="filter" value="" />
+				<put-attribute name="body-one" value="/WEB-INF/views/usuario/cadastro-completar.jsp" />
+			</definition>
+		</put-attribute>
+    </definition>
+    <definition name="modificar.senha" extends="main.template">
+        <put-attribute name="body">
+			<definition extends="main.body">
+				<put-attribute name="filter" value="" />
+				<put-attribute name="body-one" value="/WEB-INF/views/usuario/alterar-senha.jsp" />
+			</definition>
+		</put-attribute>
+    </definition>
+    
+    <definition name="meus.anuncios" extends="main.template">
+        <put-attribute name="body">
+			<definition extends="main.body">
+				<put-attribute name="filter" value="" />
+				<put-attribute name="body-one" value="/WEB-INF/views/vendas/anuncios-do-usuario.jsp" />
+			</definition>
+		</put-attribute>
+    </definition>
+    
+     <definition name="cadastrar.anuncios" extends="main.template">
+        <put-attribute name="body">
+			<definition extends="main.body">
+				<put-attribute name="filter" value="" />
+				<put-attribute name="body-one" value="/WEB-INF/views/vendas/anuncios-cadastrar.jsp" />
+			</definition>
+		</put-attribute>
+    </definition>
+    
+         <definition name="cadastrar.leilao" extends="main.template">
+        <put-attribute name="body">
+			<definition extends="main.body">
+				<put-attribute name="filter" value="" />
+				<put-attribute name="body-one" value="/WEB-INF/views/vendas/leilao/leilao-cadastrar.jsp" />
+			</definition>
+		</put-attribute>
+    </definition>
+       
+</tiles-definitions>
