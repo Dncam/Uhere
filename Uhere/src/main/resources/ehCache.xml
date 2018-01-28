@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+     xsi:noNamespaceSchemaLocation="http://ehcache.org/ehcache.xsd" 
+     name="myBigMemoryGoConfig"> 
+	
+	<diskStore path="java.io.tmpdir/ehcache" /> 
+  
+  <defaultCache
+     maxEntriesLocalHeap="100"
+     maxEntriesLocalDisk="10000000"
+     eternal="false"
+     timeToIdleSeconds="600"
+     timeToLiveSeconds="600"
+     diskExpiryThreadIntervalSeconds="86400"
+     memoryStoreEvictionPolicy="LFU">
+     
+  </defaultCache>
+  
+	<cache name="eternal" 
+	maxBytesLocalHeap="1m"
+	 maxBytesLocalDisk="1g"
+     eternal="true"
+     memoryStoreEvictionPolicy="LFU">
+     
+	</cache> 
+
+	<cache name="dojo2" 
+	maxBytesLocalHeap="5m"
+	 maxBytesLocalDisk="1g"
+     eternal="false"
+     timeToIdleSeconds="600"
+     timeToLiveSeconds="600"
+     overflowToDisk="true"
+     diskExpiryThreadIntervalSeconds="86400"
+     memoryStoreEvictionPolicy="LFU">
+     
+	</cache> 
+
+	<cache name="org.hibernate.cache.internal.StandardQueryCache"
+     maxBytesLocalHeap="10m"
+	 maxBytesLocalDisk="1g"
+     eternal="false"
+     timeToIdleSeconds="600"
+     timeToLiveSeconds="600"
+     overflowToDisk="true"
+     diskExpiryThreadIntervalSeconds="86400"
+     memoryStoreEvictionPolicy="LFU">
+     
+	</cache>
+
+	<cache name="org.hibernate.cache.spi.UpdateTimestampsCache"
+		maxEntriesLocalHeap="5000" 
+		eternal="true">
+	</cache>
+
+</ehcache>
